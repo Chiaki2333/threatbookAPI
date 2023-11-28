@@ -3,9 +3,9 @@
 '''
 此处为微步在线api的v3版本的接口封装。
 微步在线云API使用文档：https://x.threatbook.com/v5/apiDocs
+Github: https://github.com/Chiaki2333/threatbookAPI
 '''
 
-import sys
 import os
 import requests
 
@@ -211,7 +211,7 @@ def scene_domain_context(apikey, resource, lang="en", proxies=""):
 
 
 
-#测试代码：
+# 测试代码：
 '''
 apikey = ""
 proxies = {
