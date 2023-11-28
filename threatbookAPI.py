@@ -205,7 +205,7 @@ def scene_domain_context(apikey, resource, lang="en", proxies=""):
       "lang":lang
     }
 
-    response = requests.request("GET", url, params=query, proxies=proxies)
+    response = requests.request("POST", url, params=query, proxies=proxies)
 
     return(response.json())
 
