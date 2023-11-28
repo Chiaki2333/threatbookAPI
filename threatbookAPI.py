@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 '''
-此处为微步在线api的v3版本的接口封装。
+此处为微步在线api的v3版本的接口封装库。
 微步在线云API使用文档：https://x.threatbook.com/v5/apiDocs
 Github: https://github.com/Chiaki2333/threatbookAPI
 '''
@@ -167,13 +167,13 @@ def ip_adv_query(apikey, resource, exclude="asn,cur_domains,history_domains", la
     return(response.json())
 
 # 域名高级查询
-def domain_adv_query(apikey, resource, exclude="history_ips,history_whoises", lang="en", proxies=""):
+def domain_adv_query(apikey, resource, exclude="", lang="en", proxies=""):
     url = "https://api.threatbook.cn/v3/domain/adv_query"
 
     query = {
       "apikey":apikey,
       "resource":resource,
-      "exclude":exclude,
+      "exclude":exclude,    # history_ips,history_whoises
       "lang":lang
     }
 
@@ -221,7 +221,7 @@ proxies = {
 #flag = ip_query(apikey, "117.50.162.53", lang="zh", proxies=proxies)
 #flag = scene_ip_reputation(apikey, "117.50.162.53", lang="zh", proxies=proxies)
 #flag = domain_query(apikey, "baidu.com", lang="zh", proxies=proxies)
-#flag = scene_dns(apikey, "117.50.162.53", lang="zh", proxies="")
+#flag = scene_dns(apikey, "117.50.162.53", lang="zh", proxies=proxies)
 #flag = file_upload(apikey, "artifact.exe", proxies=proxies)
 #flag = file_report(apikey, "73005a914518706cc67b927c6be89435aa7504fb653e03d5eae17e77501be925", proxies=proxies)
 #flag = file_report_multiengines(apikey, "73005a914518706cc67b927c6be89435aa7504fb653e03d5eae17e77501be925", proxies=proxies)
