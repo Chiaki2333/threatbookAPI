@@ -7,9 +7,25 @@ Github: https://github.com/Chiaki2333/threatbookAPI
 '''
 
 from threatbookAPI import *
-from config import *
 
 if __name__ == "__main__" :
+    # 微步在线API Key，登录自己微步获取 https://x.threatbook.com/v5/myApi
+    # 同时在微步上绑定访问IP，微步在线仅接受符合IP来源的API请求。
+    apikey = ""
+
+    # 代理设置，如无代理置空即可。
+    proxies = {
+        'http': '',
+        'https': ''
+    }
+
+    '''
+    proxies = {
+        'http': 'http://127.0.0.1:8083',
+        'https': 'http://127.0.0.1:8083'
+    }
+    '''
+    
     # IP分析
     flag = ip_query(apikey, "117.50.162.53", lang="zh", proxies=proxies)
     print(flag)

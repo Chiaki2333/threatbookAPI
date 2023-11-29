@@ -172,7 +172,7 @@ func Scene_dns(apikey string, resource string, lang string) string {
 
 
 // 提交文件分析
-func FileUpload(apikey string, file string, sandbox_type string, run_time int) string {
+func File_upload(apikey string, file string, sandbox_type string, run_time int) string {
   body := &bytes.Buffer{}
   writer := multipart.NewWriter(body)
   writer.WriteField("sandbox_type", sandbox_type)
@@ -410,6 +410,44 @@ func Ip_adv_query(apikey string, resource string, exclude string, lang string) s
 
   // Create request
   req, err := http.NewRequest("POST", "https://api.threatbook.cn/v3/ip/adv_query", body)
+
+  // Headers
+  req.Header.Add("Content-Type", writer.FormDataContentType())
+
+  // Fetch Request
+  resp, err := client.Do(req)
+  //fmt.Println("ok")
+
+  if err != nil {
+    //fmt.Println("Failure : ", err)
+	return err.Error()
+  }
+
+  // Read Response Body
+  respBody, _ := ioutil.ReadAll(resp.Body)
+
+  // Display Results
+  //fmt.Println("response Status : ", resp.Status)
+  //fmt.Println("response Headers : ", resp.Header)
+  //fmt.Println("response Body : ", string(respBody))
+  return string(respBody)
+}
+
+// 域名高级查询
+func Domain_adv_query(apikey string, resource string, exclude string, lang string) string {
+  body := &bytes.Buffer{}
+  writer := multipart.NewWriter(body)
+  writer.WriteField("apikey", apikey)
+  writer.WriteField("resource", resource)
+  writer.WriteField("exclude", exclude)	// history_ips,history_whoises
+  writer.WriteField("lang", lang)
+  writer.Close()
+  
+  // Create client
+  client := &http.Client{}
+
+  // Create request
+  req, err := http.NewRequest("POST", "https://api.threatbook.cn/v3/domain/adv_query", body)
 
   // Headers
   req.Header.Add("Content-Type", writer.FormDataContentType())
