@@ -6,6 +6,10 @@ import (
 )
 
 func main() {
+	/*
+	微步在线API Key，登录自己微步获取 https://x.threatbook.com/v5/myApi
+	同时在微步上绑定访问IP，微步在线仅接受符合IP来源的API请求。
+	*/
 	apikey := ""
 	flag := ""
 	
