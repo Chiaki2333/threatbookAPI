@@ -5,7 +5,6 @@ package threatbookAPI
 微步在线云API使用文档：https://x.threatbook.com/v5/apiDocs
 Github: https://github.com/Chiaki2333/threatbookAPI
 */
-//此Golang版本的还没做测试，可能存在bug。
 
 import (
   "io/ioutil"
