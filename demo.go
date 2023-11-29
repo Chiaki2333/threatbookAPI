@@ -1,5 +1,11 @@
 package main
 
+/*
+此处为微步在线api的v3版本的接口封装库。
+微步在线云API使用文档：https://x.threatbook.com/v5/apiDocs
+Github: https://github.com/Chiaki2333/threatbookAPI
+*/
+
 import (
 	"fmt"
 	"threatbookAPI"
